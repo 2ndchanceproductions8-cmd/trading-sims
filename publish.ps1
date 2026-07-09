@@ -2,11 +2,15 @@
 # Called automatically at the end of each bot run. Safe to run by hand too.
 $ErrorActionPreference = "Stop"
 $site   = "C:\Users\Justin\Projects\trading-sims-site"
-$sources = @{
-    "daytrader.html" = "C:\Users\Justin\Projects\daytrader-sim\dashboard.html"
-    "scout.html"     = "C:\Users\Justin\Projects\trading-scout\dashboard.html"
-    "copycat.html"   = "C:\Users\Justin\Projects\copycat-trader\dashboard.html"
-}
+
+# Each bot gets its OWN subfolder on the site so its internal relative links
+# (e.g. scout's dashboard.html <-> aggressive.html) resolve correctly.
+# 'files' lists every page to publish for that bot; missing ones are skipped.
+$bots = @(
+    @{ sub = "daytrader"; folder = "C:\Users\Justin\Projects\daytrader-sim";  files = @("dashboard.html") }
+    @{ sub = "scout";     folder = "C:\Users\Justin\Projects\trading-scout";  files = @("dashboard.html","aggressive.html") }
+    @{ sub = "copycat";   folder = "C:\Users\Justin\Projects\copycat-trader"; files = @("dashboard.html") }
+)
 
 Set-Location $site
 
@@ -22,20 +26,24 @@ $changed = $false
 # apostrophes, and emoji into mojibake. Use .NET directly to avoid that.
 $utf8 = New-Object System.Text.UTF8Encoding($false)
 
-foreach ($name in $sources.Keys) {
-    $src = $sources[$name]
-    if (-not (Test-Path $src)) { Write-Host "skip $name (source not found)"; continue }
-    $html = [System.IO.File]::ReadAllText($src, [System.Text.Encoding]::UTF8)
-    # Inject a noindex tag so search engines don't list the dashboards.
-    if ($html -notmatch 'name="robots"') {
-        $html = $html -replace '(?i)<head>', '<head><meta name="robots" content="noindex, nofollow">'
-    }
-    $dest = Join-Path $site $name
-    $existing = if (Test-Path $dest) { [System.IO.File]::ReadAllText($dest, [System.Text.Encoding]::UTF8) } else { "" }
-    if ($html -ne $existing) {
-        [System.IO.File]::WriteAllText($dest, $html, $utf8)
-        $changed = $true
-        Write-Host "updated $name"
+foreach ($bot in $bots) {
+    $destDir = Join-Path $site $bot.sub
+    if (-not (Test-Path $destDir)) { New-Item -ItemType Directory -Path $destDir | Out-Null }
+    foreach ($file in $bot.files) {
+        $src = Join-Path $bot.folder $file
+        if (-not (Test-Path $src)) { Write-Host "skip $($bot.sub)/$file (source not found)"; continue }
+        $html = [System.IO.File]::ReadAllText($src, [System.Text.Encoding]::UTF8)
+        # Inject a noindex tag so search engines don't list the dashboards.
+        if ($html -notmatch 'name="robots"') {
+            $html = $html -replace '(?i)<head>', '<head><meta name="robots" content="noindex, nofollow">'
+        }
+        $dest = Join-Path $destDir $file
+        $existing = if (Test-Path $dest) { [System.IO.File]::ReadAllText($dest, [System.Text.Encoding]::UTF8) } else { "" }
+        if ($html -ne $existing) {
+            [System.IO.File]::WriteAllText($dest, $html, $utf8)
+            $changed = $true
+            Write-Host "updated $($bot.sub)/$file"
+        }
     }
 }
 
