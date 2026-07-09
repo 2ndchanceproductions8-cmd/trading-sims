@@ -5,6 +5,7 @@ $site   = "C:\Users\Justin\Projects\trading-sims-site"
 $sources = @{
     "daytrader.html" = "C:\Users\Justin\Projects\daytrader-sim\dashboard.html"
     "scout.html"     = "C:\Users\Justin\Projects\trading-scout\dashboard.html"
+    "copycat.html"   = "C:\Users\Justin\Projects\copycat-trader\dashboard.html"
 }
 
 Set-Location $site
