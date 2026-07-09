@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Trading Sims</title>
+<style>
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0; min-height: 100vh;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background: #0b0e14; color: #e6e9ef;
+    display: flex; flex-direction: column; align-items: center;
+    padding: 48px 20px;
+  }
+  h1 { font-size: 30px; margin: 0 0 6px; letter-spacing: -0.02em; }
+  .sub { color: #8b93a7; margin: 0 0 40px; font-size: 15px; text-align: center; }
+  .cards { display: grid; gap: 18px; width: 100%; max-width: 640px; }
+  a.card {
+    display: block; text-decoration: none; color: inherit;
+    background: #151a24; border: 1px solid #232a38; border-radius: 16px;
+    padding: 24px 26px; transition: border-color .15s, transform .15s;
+  }
+  a.card:hover { border-color: #3b82f6; transform: translateY(-2px); }
+  .card h2 { margin: 0 0 6px; font-size: 20px; }
+  .card p { margin: 0; color: #8b93a7; font-size: 14px; line-height: 1.5; }
+  .tag {
+    display: inline-block; margin-top: 14px; font-size: 12px; font-weight: 600;
+    color: #3b82f6; letter-spacing: .04em; text-transform: uppercase;
+  }
+  footer { margin-top: 44px; color: #5b6273; font-size: 12.5px; text-align: center; line-height: 1.6; }
+</style>
+</head>
+<body>
+  <h1>📈 Trading Sims</h1>
+  <p class="sub">Paper-trading simulations &mdash; play money only, nothing real is at stake.</p>
+  <div class="cards">
+    <a class="card" href="daytrader.html">
+      <h2>Day-Trader Sim</h2>
+      <p>Stock + crypto replay bots running a 1%-trader playbook. Careful vs aggressive profiles, side by side.</p>
+      <span class="tag">Open dashboard &rarr;</span>
+    </a>
+    <a class="card" href="scout.html">
+      <h2>Trading Scout</h2>
+      <p>$10k paper-trading scout that scans the market and posts a daily call. Updates live during market hours.</p>
+      <span class="tag">Open dashboard &rarr;</span>
+    </a>
+  </div>
+  <footer>
+    Simulation only. Not financial advice.<br>
+    Updated automatically whenever the bots run.
+  </footer>
+</body>
+</html>
