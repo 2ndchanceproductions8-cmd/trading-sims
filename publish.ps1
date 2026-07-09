@@ -17,19 +17,23 @@ git remote get-url origin *> $null
 if ($LASTEXITCODE -ne 0) { Write-Host "No remote yet; skipping publish."; exit 0 }
 
 $changed = $false
+# Read/write UTF-8 explicitly (no BOM). Windows PowerShell 5.1's Get-Content/
+# Set-Content mangle UTF-8 (wrong codepage + BOM) which corrupts em-dashes,
+# apostrophes, and emoji into mojibake. Use .NET directly to avoid that.
+$utf8 = New-Object System.Text.UTF8Encoding($false)
 
 foreach ($name in $sources.Keys) {
     $src = $sources[$name]
     if (-not (Test-Path $src)) { Write-Host "skip $name (source not found)"; continue }
-    $html = Get-Content $src -Raw
+    $html = [System.IO.File]::ReadAllText($src, [System.Text.Encoding]::UTF8)
     # Inject a noindex tag so search engines don't list the dashboards.
     if ($html -notmatch 'name="robots"') {
         $html = $html -replace '(?i)<head>', '<head><meta name="robots" content="noindex, nofollow">'
     }
     $dest = Join-Path $site $name
-    $existing = if (Test-Path $dest) { Get-Content $dest -Raw } else { "" }
+    $existing = if (Test-Path $dest) { [System.IO.File]::ReadAllText($dest, [System.Text.Encoding]::UTF8) } else { "" }
     if ($html -ne $existing) {
-        Set-Content -Path $dest -Value $html -Encoding UTF8
+        [System.IO.File]::WriteAllText($dest, $html, $utf8)
         $changed = $true
         Write-Host "updated $name"
     }
