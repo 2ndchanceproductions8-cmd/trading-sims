@@ -10,6 +10,7 @@ $bots = @(
     @{ sub = "daytrader"; folder = "C:\Users\Justin\Projects\daytrader-sim";  files = @("dashboard.html") }
     @{ sub = "scout";     folder = "C:\Users\Justin\Projects\trading-scout";  files = @("dashboard.html","aggressive.html") }
     @{ sub = "copycat";   folder = "C:\Users\Justin\Projects\copycat-trader"; files = @("dashboard.html") }
+    @{ sub = "longshort"; folder = "C:\Users\Justin\Projects\longshort-scout"; files = @("dashboard.html","aggressive.html") }
 )
 
 Set-Location $site
