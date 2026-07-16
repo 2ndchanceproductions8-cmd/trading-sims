@@ -61,6 +61,17 @@ padding:12px 16px;font-size:13px;line-height:1.6;margin:14px 0}
 <div class='mut' style='flex-basis:100%'>Two bots &middot; same $10,000 start &middot; same board &middot; different guts. Tabs up top switch pages.</div>
 </div>
 <h2>Playbook</h2><div class='rules'><b>The 8 gates (every one must pass):</b> edge &ge; +4% vig-free &middot; model sits a league-sized margin off the line (MLB 0.6 runs, WNBA 4 pts, NBA 4.5, NFL 3, NHL 0.4 goals) &middot; price −130…+120 &middot; both teams past the min-games sample &middot; max 3/day &middot; max 6 pending &middot; one bet per game &middot; flat 2% stake. <b>HARD HALT</b> below $8,500 — if the model can't keep 85 cents of every simulated dollar, the experiment is over.</div>
+<h2>&#9878;&#65039; Did refusing pay? &mdash; every gate-refused total, graded</h2>
+<div class='rules mut' style='margin-bottom:8px'>
+Every total the model called value but a gate refused, settled against the real
+combined score exactly like a real bet. <b>R = profit per unit staked</b> had it
+been bet &mdash; negative means the gate saved money. The only panel here that
+can be proven right or wrong. <span class='mut'>(<b>margin</b> = this bot's
+signature gate: the model must sit a league-sized distance off the line before a
+disagreement counts as signal. Nothing else in the fleet has it and nothing has
+ever tested it. <b>min_gp</b> = scoring rate too small a sample.)</span>
+</div>
+<div class='mut'>No refused pick has settled yet. This fills in once games finish &mdash; it is the real scoreboard.</div>
 <h2>How the model reads a total</h2><div class='rules'>
 Each team's scoring rate and rate-allowed come from ESPN's standings, then get
 <b>regressed toward the league average</b> (a hot week isn't a rate). Offense
@@ -82,5 +93,5 @@ touches a sportsbook and never wagers real money. It exists to answer, with a
 real tracked record, whether a totals model beats the vig. (Spoiler: the vig
 usually wins — that's the lesson.) Sibling of Betting Scout, which bets
 moneylines on the same slate. Data: ESPN public API, DraftKings lines.
-Updated 2026-07-16 05:43 UTC.</div>
+Updated 2026-07-16 05:57 UTC.</div>
 </div></body></html>
