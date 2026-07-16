@@ -1,0 +1,86 @@
+<!DOCTYPE html><html><head><meta name="robots" content="noindex, nofollow"><meta charset='utf-8'>
+<title>Totals Scout — Aggressive Bot</title>
+<style>:root{--acc:#8a3fd6;--acc2:#d63f9b}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0e1117;color:#dde3ec;
+margin:0;padding:0 0 60px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.tabs{display:flex;gap:8px;padding:18px 0 0}
+.tabs a{padding:9px 22px;border-radius:9px 9px 0 0;text-decoration:none;
+color:#8b94a7;background:#161b26;font-weight:600}
+.tabs a.on{color:#fff;background:#1f2736;border-bottom:3px solid var(--acc2)}
+.banner{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;
+border-radius:0 12px 12px 12px;padding:18px 22px;font-size:17px;line-height:1.5}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0}
+.card{flex:1;min-width:150px;background:#161b26;border:1px solid #232b3b;
+border-radius:12px;padding:14px 18px}
+.card .k{font-size:12px;color:#8b94a7;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:700;margin-top:4px}
+.good{color:#3fd68f}.bad{color:#ff6b6b}.mut{color:#8b94a7}
+h2{margin:28px 0 10px;font-size:19px;border-bottom:1px solid #232b3b;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:#8b94a7;text-align:left;padding:7px 9px;border-bottom:1px solid #232b3b;
+font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td{padding:7px 9px;border-bottom:1px solid #1a2130;vertical-align:top}
+tr:hover td{background:#151b28}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:700}
+.pw{background:#12351f;color:#3fd68f}.pl{background:#3a1620;color:#ff6b6b}
+.pp{background:#2a2f3d;color:#aab3c5}.pn{background:#1d2c45;color:#6aa7ff}
+.over{background:#12351f;color:#3fd68f}.under{background:#1d2c45;color:#6aa7ff}
+.gate{margin:3px 0;font-size:12.5px}
+.gate .ok{color:#3fd68f}.gate .no{color:#ff6b6b}
+details{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+.rules{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:14px 18px;font-size:13.5px;line-height:1.7}
+.chart{background:#161b26;border:1px solid #232b3b;border-radius:12px;padding:12px}
+.race{display:flex;gap:18px;flex-wrap:wrap;background:#161b26;
+border:1px solid #232b3b;border-radius:12px;padding:14px 18px}
+.race .side{flex:1;min-width:220px}
+.race .bar{height:10px;border-radius:6px;background:#232b3b;overflow:hidden;margin-top:6px}
+.race .fill{height:100%}
+.foot{margin-top:34px;padding-top:14px;border-top:1px solid #232b3b;
+color:#6d7789;font-size:12px;line-height:1.6}
+.warn{background:#2a2213;border:1px solid #4d3d17;color:#e0c579;border-radius:10px;
+padding:12px 16px;font-size:13px;line-height:1.6;margin:14px 0}
+</style></head><body><div class='wrap'>
+<div class='tabs'><a href='dashboard.html' class=''>Careful</a><a href='aggressive.html' class='on'>Aggressive</a></div>
+<div class='banner'><b>Today:</b> &#128564; No action today — No play cleared the +6% edge bar today (no totals in the price window).</div>
+<div class='cards'>
+<div class='card'><div class='k'>Bankroll</div><div class='v'>$10,000.00</div></div>
+<div class='card'><div class='k'>P&amp;L</div><div class='v good'>+0.0%</div></div>
+<div class='card'><div class='k'>Record</div><div class='v'>0-0</div></div>
+<div class='card'><div class='k'>Pending</div><div class='v'>0</div></div>
+<div class='card'><div class='k'>Status</div><div class='v good'>LIVE</div></div>
+</div>
+<h2>Best O/U picks of the day</h2><div class='mut'>No totals posted on today's board yet. Lines usually appear the morning of the game.</div>
+<h2>Bankroll curve</h2><div class='chart'><div class='mut'>Not enough history yet — one point per day.</div></div>
+<h2>The race</h2>
+<div class='race'>
+<div class='side'><b style='color:#3fd68f'>Careful</b> $10,000.00<div class='bar'><div class='fill' style='width:100.0%;background:#3fd68f'></div></div></div><div class='side'><b style='color:#d63f9b'>Aggressive</b> $10,000.00<div class='bar'><div class='fill' style='width:100.0%;background:#d63f9b'></div></div></div>
+<div class='mut' style='flex-basis:100%'>Two bots &middot; same $10,000 start &middot; same board &middot; different guts. Tabs up top switch pages.</div>
+</div>
+<h2>Playbook</h2><div class='rules'><b>The 4-rule playbook:</b> one best-value total per day (edge &ge; +6%) &middot; price window −140…+140 &middot; still needs the league margin &middot; 10% of bankroll (20% on an A+ edge &ge; +12%) &middot; <b>no halt floor</b> — it rides the variance so you don't have to.</div>
+<h2>How the model reads a total</h2><div class='rules'>
+Each team's scoring rate and rate-allowed come from ESPN's standings, then get
+<b>regressed toward the league average</b> (a hot week isn't a rate). Offense
+then meets defense: <code>exp_home = home_off &times; away_def / lg_avg</code>,
+same for the away side, added together. A normal curve around that expected
+total — with a per-sport spread — gives P(over), which is compared against the
+over/under price with the vig stripped out.
+</div>
+<div class='warn'><b>The known blind spot:</b> season averages don't know who is
+pitching tonight. In MLB the starting pitcher moves a run total more than either
+team's average does, and the market prices him — this model can't see him. Expect
+MLB to be the weakest league on this board. That's the experiment, not a bug.</div>
+<h2>Pending bets (0)</h2><div class='mut'>No pending bets.</div><div class='mut' style='margin:6px 0'>No play cleared the +6% edge bar today (no totals in the price window).</div><div class='mut' style='margin:6px 0'>WNBA: 3 games on the slate, none with a posted total yet.</div>
+<h2>Full bet log</h2>
+<table><tr><th>Placed</th><th>Lg</th><th>Bet</th><th>Price</th><th>Stake</th><th>Edge</th><th>Result</th><th>Profit</th></tr>
+<tr><td colspan='8' class='mut'>Nothing settled yet.</td></tr></table>
+<div class='foot'>&#9888;&#65039; 100% SIMULATED — paper bets only. This bot never
+touches a sportsbook and never wagers real money. It exists to answer, with a
+real tracked record, whether a totals model beats the vig. (Spoiler: the vig
+usually wins — that's the lesson.) Sibling of Betting Scout, which bets
+moneylines on the same slate. Data: ESPN public API, DraftKings lines.
+Updated 2026-07-16 02:18 UTC.</div>
+</div></body></html>

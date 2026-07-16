@@ -12,6 +12,7 @@ $bots = @(
     @{ sub = "copycat";   folder = "C:\Users\Justin\Projects\copycat-trader"; files = @("dashboard.html") }
     @{ sub = "longshort"; folder = "C:\Users\Justin\Projects\longshort-scout"; files = @("dashboard.html","aggressive.html") }
     @{ sub = "betting";   folder = "C:\Users\Justin\Projects\betting-scout";   files = @("dashboard.html","aggressive.html","parlay-careful.html","parlay-aggressive.html") }
+    @{ sub = "totals";    folder = "C:\Users\Justin\Projects\totals-scout";    files = @("dashboard.html","aggressive.html") }
 )
 
 Set-Location $site
