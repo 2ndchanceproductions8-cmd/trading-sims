@@ -12,7 +12,9 @@ $bots = @(
     @{ sub = "copycat";   folder = "C:\Users\Justin\Projects\copycat-trader"; files = @("dashboard.html") }
     @{ sub = "longshort"; folder = "C:\Users\Justin\Projects\longshort-scout"; files = @("dashboard.html","aggressive.html") }
     @{ sub = "betting";   folder = "C:\Users\Justin\Projects\betting-scout";   files = @("dashboard.html","aggressive.html","parlay-careful.html","parlay-aggressive.html") }
-    @{ sub = "totals";    folder = "C:\Users\Justin\Projects\totals-scout";    files = @("dashboard.html","aggressive.html") }
+    # ladder.html added 2026-07-16 — the published tabs linked to it, so leaving
+    # it out made the 🧱 Ladder tab 404 on the public site (Justin's call to publish).
+    @{ sub = "totals";    folder = "C:\Users\Justin\Projects\totals-scout";    files = @("dashboard.html","aggressive.html","ladder.html") }
 )
 
 Set-Location $site
