@@ -15,6 +15,10 @@ $bots = @(
     # ladder.html added 2026-07-16 — the published tabs linked to it, so leaving
     # it out made the 🧱 Ladder tab 404 on the public site (Justin's call to publish).
     @{ sub = "totals";    folder = "C:\Users\Justin\Projects\totals-scout";    files = @("dashboard.html","aggressive.html","ladder.html") }
+    # sharp added 2026-07-17 (Justin's call to publish; was local-only). The four
+    # ablation-ladder tabs cross-link as siblings (ceiling/form/clean/dashboard),
+    # so all four must ship to /sharp/ or the tab bar 404s. dashboard.html = "4. Sharp".
+    @{ sub = "sharp";     folder = "C:\Users\Justin\Projects\sharp-scout";     files = @("dashboard.html","ceiling.html","form.html","clean.html") }
 )
 
 Set-Location $site
