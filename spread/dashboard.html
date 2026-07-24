@@ -1,40 +1,114 @@
-<!doctype html><html><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
-<title>Spread Scout — Careful</title><meta name="viewport" content="width=device-width,initial-scale=1">
-<style>
-body{font:15px/1.5 system-ui,sans-serif;margin:0;background:#0f1115;color:#e6e6e6}
-.wrap{max-width:960px;margin:0 auto;padding:20px}
-h1{font-size:20px;margin:0 0 4px} .sub{color:#8a94a6;font-size:13px}
-.cards{display:flex;gap:12px;flex-wrap:wrap;margin:16px 0}
-.card{background:#171a21;border:1px solid #232833;border-radius:10px;padding:12px 16px;flex:1;min-width:140px}
-.card .n{font-size:22px;font-weight:700} .card .k{color:#8a94a6;font-size:12px}
-.banner{background:#12202b;border:1px solid #1e3a4a;border-radius:8px;padding:10px 14px;margin:12px 0}
-table{width:100%;border-collapse:collapse;margin:8px 0 20px}
-th,td{text-align:left;padding:7px 8px;border-bottom:1px solid #232833;font-size:13px}
-th{color:#8a94a6;font-weight:600}
-tr.win td{color:#4ade80} tr.loss td{color:#f87171}
-h2{font-size:15px;margin:18px 0 4px;color:#c9d3e0}
-.skip{color:#8a94a6;font-size:12px}
-a{color:#6ea8fe}
-</style></head><body><div class="wrap">
-<h1>Spread Scout — Careful</h1>
-<div class="sub">Point-spread (ATS) sim · SIM ONLY, no real money · 2026-07-23
- · <a href="aggressive.html">
- aggressive »</a>
- · <a href="ladder.html">ablation ladder »</a></div>
-<div class="banner">settled 2 · bankroll $10,363.64</div>
-<div class="cards">
-<div class="card"><div class="n">$10,363.64</div><div class="k">bankroll</div></div>
-<div class="card"><div class="n">2-0-0</div><div class="k">record</div></div>
-<div class="card"><div class="n">0/0</div><div class="k">beat the close</div></div>
-<div class="card"><div class="n">+0.0%</div><div class="k">avg CLV</div></div>
+<!DOCTYPE html><html><head><meta name="robots" content="noindex, nofollow"><meta charset='utf-8'>
+<title>Spread Scout — Careful</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>:root{--acc:#2f5d7d;--acc2:#6aa7ff}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0e1117;color:#dde3ec;
+margin:0;padding:0 0 60px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.tabs{display:flex;gap:8px;padding:18px 0 0;flex-wrap:wrap}
+.tabs a{padding:9px 22px;border-radius:9px 9px 0 0;text-decoration:none;
+color:#8b94a7;background:#161b26;font-weight:600}
+.tabs a.on{color:#fff;background:#1f2736;border-bottom:3px solid var(--acc2)}
+.banner{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;
+border-radius:0 12px 12px 12px;padding:18px 22px;font-size:17px;line-height:1.5}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0}
+.card{flex:1;min-width:150px;background:#161b26;border:1px solid #232b3b;
+border-radius:12px;padding:14px 18px}
+.card .k{font-size:12px;color:#8b94a7;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:700;margin-top:4px}
+.good{color:#3fd68f}.bad{color:#ff6b6b}.mut{color:#8b94a7}
+h2{margin:28px 0 10px;font-size:19px;border-bottom:1px solid #232b3b;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:#8b94a7;text-align:left;padding:7px 9px;border-bottom:1px solid #232b3b;
+font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td{padding:7px 9px;border-bottom:1px solid #1a2130;vertical-align:top}
+tr:hover td{background:#151b28}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:700}
+.pw{background:#12351f;color:#3fd68f}.pl{background:#3a1620;color:#ff6b6b}
+.pp{background:#2a2f3d;color:#aab3c5}.pn{background:#1d2c45;color:#6aa7ff}
+.home{background:#12351f;color:#3fd68f}.away{background:#1d2c45;color:#6aa7ff}
+.gate{margin:3px 0;font-size:12.5px}
+.gate .ok{color:#3fd68f}.gate .no{color:#ff6b6b}
+details{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+.rules{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:14px 18px;font-size:13.5px;line-height:1.7}
+.chart{background:#161b26;border:1px solid #232b3b;border-radius:12px;padding:12px}
+.race{display:flex;gap:18px;flex-wrap:wrap;background:#161b26;
+border:1px solid #232b3b;border-radius:12px;padding:14px 18px}
+.race .side{flex:1;min-width:220px}
+.race .bar{height:10px;border-radius:6px;background:#232b3b;overflow:hidden;margin-top:6px}
+.race .fill{height:100%}
+.foot{margin-top:34px;padding-top:14px;border-top:1px solid #232b3b;
+color:#6d7789;font-size:12px;line-height:1.6}
+.warn{background:#2a2213;border:1px solid #4d3d17;color:#e0c579;border-radius:10px;
+padding:12px 16px;font-size:13px;line-height:1.6;margin:14px 0}
+</style></head><body><div class='wrap'>
+<div class='tabs'><a href='dashboard.html' class='on'>Careful</a><a href='aggressive.html' class=''>Aggressive</a><a href='ladder.html' class=''>&#129521; Ladder</a></div>
+<div class='banner'>No action today. Bankroll $10,363.64.</div>
+<div class='cards'>
+<div class='card'><div class='k'>Bankroll</div><div class='v'>$10,363.64</div></div>
+<div class='card'><div class='k'>P&amp;L</div><div class='v good'>+3.6%</div></div>
+<div class='card'><div class='k'>Record</div><div class='v'>2-0</div></div>
+<div class='card'><div class='k'>Pending</div><div class='v'>0</div></div>
+<div class='card'><div class='k'>Beat the close</div><div class='v'>0/0</div></div>
+<div class='card'><div class='k'>Avg CLV</div><div class='v good'>+0.0%</div></div>
+<div class='card'><div class='k'>Status</div><div class='v good'>LIVE</div></div>
 </div>
-<h2>Pending (0)</h2>
-<table><tr><th>Game</th><th>Pick</th><th>Odds</th><th>Stake</th><th>Model</th></tr><tr><td colspan=5>none</td></tr></table>
-<h2>Today's board (top 20 by edge)</h2>
-<table><tr><th>Game</th><th>Pick</th><th>Cover%</th><th>Edge</th><th>Model margin</th></tr><tr><td colspan=5>no games</td></tr></table>
-
-<h2>Settled (last 40) — CLV = did we beat the close</h2>
-<table><tr><th>Game</th><th>Pick</th><th>Result</th><th>P/L</th><th>CLV</th></tr><tr class='win'><td>DAL @ POR</td><td>Portland Fire +6.5</td><td>WIN</td><td>$181.82</td><td>—</td></tr><tr class='win'><td>LV @ WSH</td><td>Washington Mystics +6.5</td><td>WIN</td><td>$181.82</td><td>—</td></tr></table>
-<h2>Shadow scorecard — did refusing pay?</h2>
-<table><tr><th>Book</th><th>Gate</th><th>Refused</th><th>Would-be</th><th>Avg R</th><th>Verdict</th></tr><tr><td>aggressive</td><td>edge_below_min</td><td>5</td><td>2-3</td><td class='win'>-0.236R</td><td>saved 1.182R</td></tr><tr><td>careful</td><td>edge_below_min</td><td>4</td><td>1-3</td><td class='win'>-0.523R</td><td>saved 2.091R</td></tr><tr><td>lad_ceiling</td><td>edge_below_min</td><td>4</td><td>1-3</td><td class='win'>-0.523R</td><td>saved 2.091R</td></tr><tr><td>lad_ceiling</td><td>edge_ceiling</td><td>1</td><td>1-0</td><td class='loss'>+0.909R</td><td>cost 0.909R</td></tr><tr><td>lad_ceiling</td><td>margin</td><td>1</td><td>1-0</td><td class='loss'>+0.909R</td><td>cost 0.909R</td></tr><tr><td>lad_clean</td><td>edge_below_min</td><td>4</td><td>1-3</td><td class='win'>-0.523R</td><td>saved 2.091R</td></tr><tr><td>lad_clean</td><td>edge_ceiling</td><td>2</td><td>2-0</td><td class='loss'>+0.909R</td><td>cost 1.818R</td></tr><tr><td>lad_form</td><td>edge_below_min</td><td>4</td><td>1-3</td><td class='win'>-0.523R</td><td>saved 2.091R</td></tr><tr><td>lad_form</td><td>edge_ceiling</td><td>2</td><td>2-0</td><td class='loss'>+0.909R</td><td>cost 1.818R</td></tr><tr><td>lad_sharp</td><td>edge_below_min</td><td>4</td><td>1-3</td><td class='win'>-0.523R</td><td>saved 2.091R</td></tr><tr><td>lad_sharp</td><td>edge_ceiling</td><td>2</td><td>2-0</td><td class='loss'>+0.909R</td><td>cost 1.818R</td></tr></table><div class='k' style='margin-top:6px'>Negative avg R = the refused picks would have LOST, so the gate earned its keep. Small samples lie; give it months.</div>
+<h2>Best spread picks of the day</h2><div class='mut'>No spreads posted on today's board yet. Lines usually appear the morning of the game.</div>
+<h2>Bankroll curve</h2><div class='chart'><div class='mut'>Not enough history yet — one point per day.</div></div>
+<h2>The race</h2>
+<div class='race'>
+<div class='side'><b style='color:#6aa7ff'>Careful</b> $10,363.64<div class='bar'><div class='fill' style='width:87.7%;background:#6aa7ff'></div></div></div><div class='side'><b style='color:#ff6b9d'>Aggressive</b> $11,818.20<div class='bar'><div class='fill' style='width:100.0%;background:#ff6b9d'></div></div></div>
+<div class='mut' style='flex-basis:100%'>Two bots &middot; same $10,000 start &middot; same board &middot; different guts. The ladder tab races four more against the careful book.</div>
+</div>
+<h2>Playbook</h2><div class='rules'><b>The 7 gates (every one must pass):</b> edge &ge; +4% vig-free &middot; cover probability &ge; 52% &middot; the model sits at least 1 point off the posted number &middot; price −200…+150 &middot; max 3 new bets/day &middot; max 6 pending &middot; one bet per game, flat 2% stake. <b>HARD HALT</b> below $8,500 — if the model can't keep 85 cents of every simulated dollar, the experiment is over.</div>
+<h2>&#9878;&#65039; Did refusing pay? &mdash; every gate-refused spread, graded</h2>
+<div class='rules mut' style='margin-bottom:8px'>
+Every spread a gate refused &mdash; on <b>every book here, the ladder rungs
+included</b> &mdash; settled against the real final margin exactly like a real
+bet. <b>R = profit per unit staked</b> had it been bet &mdash; negative means the
+gate saved money. The only panel here that can be proven right or wrong.
+<span class='mut'>(<b>margin</b> = the model must sit a real distance off the
+posted number before a disagreement counts as signal. <b>edge_ceiling</b> = the
+ladder's humility gate, an edge so large the model is more likely wrong than the
+market. <b>edge_below_min</b> = never reached that book's edge bar &mdash; the
+near misses are what ask whether the bar is set too tight.) Logging only &mdash;
+it never changes what this bot bets.</span>
+</div>
+<table><tr><th>Book</th><th>Gate</th><th>Refused</th><th>Would-be record</th><th>Avg R</th><th>Verdict</th></tr><tr><td>aggressive</td><td><b>edge_below_min</b></td><td>5</td><td>2-3</td><td class='good'>-0.236R</td><td class='good'>saved 1.182R</td></tr><tr><td>careful</td><td><b>edge_below_min</b></td><td>4</td><td>1-3</td><td class='good'>-0.523R</td><td class='good'>saved 2.091R</td></tr><tr><td>lad_ceiling</td><td><b>edge_below_min</b></td><td>4</td><td>1-3</td><td class='good'>-0.523R</td><td class='good'>saved 2.091R</td></tr><tr><td>lad_ceiling</td><td><b>edge_ceiling</b></td><td>1</td><td>1-0</td><td class='bad'>+0.909R</td><td class='bad'>cost 0.909R</td></tr><tr><td>lad_ceiling</td><td><b>margin</b></td><td>1</td><td>1-0</td><td class='bad'>+0.909R</td><td class='bad'>cost 0.909R</td></tr><tr><td>lad_clean</td><td><b>edge_below_min</b></td><td>4</td><td>1-3</td><td class='good'>-0.523R</td><td class='good'>saved 2.091R</td></tr><tr><td>lad_clean</td><td><b>edge_ceiling</b></td><td>2</td><td>2-0</td><td class='bad'>+0.909R</td><td class='bad'>cost 1.818R</td></tr><tr><td>lad_form</td><td><b>edge_below_min</b></td><td>4</td><td>1-3</td><td class='good'>-0.523R</td><td class='good'>saved 2.091R</td></tr><tr><td>lad_form</td><td><b>edge_ceiling</b></td><td>2</td><td>2-0</td><td class='bad'>+0.909R</td><td class='bad'>cost 1.818R</td></tr><tr><td>lad_sharp</td><td><b>edge_below_min</b></td><td>4</td><td>1-3</td><td class='good'>-0.523R</td><td class='good'>saved 2.091R</td></tr><tr><td>lad_sharp</td><td><b>edge_ceiling</b></td><td>2</td><td>2-0</td><td class='bad'>+0.909R</td><td class='bad'>cost 1.818R</td></tr></table><div class='mut' style='margin-top:8px;font-size:12.5px'>Negative average R means the refused picks would have LOST &mdash; the gate earned its keep. Positive means it cost money. Small samples lie; give it months.</div>
+<h2>How the model reads a spread</h2><div class='rules'>
+Each team's scoring rate and rate-allowed come from ESPN's standings, then get
+<b>regressed toward the league average</b> (a hot week isn't a rate). Offense
+meets defense: <code>exp_home = home_off &times; away_def / lg_avg</code>, same
+for the away side; the difference plus a per-league home-field edge is the
+expected margin. A normal curve of per-league width sigma around that margin
+gives P(cover) against the posted number, compared to the vig-free price. Whole
+spreads can push.
+</div>
+<div class='warn'><b>CLV is the real scoreboard.</b> Bankroll over a few dozen
+bets is mostly noise. Whether this bot got a better number than the market
+closed at &mdash; the &ldquo;beat the close&rdquo; column &mdash; is what
+separates an edge from a lucky month. The honest prior is that it comes back
+negative: the market is very hard to beat, and this bot is built to find that
+out cheaply.
+<div style='margin-top:8px'><b>How the close is captured:</b> ESPN deletes an
+event's odds block the moment the game goes final, so a closing line cannot be
+recovered at settlement &mdash; the first three bets settled with no CLV at all
+for exactly that reason. A separate snapshot run now records each pending bet's
+line in the hours before tip and keeps the latest one, and every row says how
+long before tip it was taken. Anything marked <i>snapshot T&minus;20m</i> is
+close to a real close; <i>T&minus;400m</i> is a morning line wearing the
+label, and is why the lag is printed instead of hidden.
+Line source: none — all 2 settled bets pre-date the snapshot run, so they have no closing line to be measured against and are excluded from the CLV cards above rather than counted as a miss.</div></div>
+<h2>Pending bets (0)</h2><div class='mut'>No pending bets.</div>
+<h2>Full bet log</h2>
+<table><tr><th>Placed</th><th>Lg</th><th>Bet</th><th>Price</th><th>Stake</th><th>Edge</th><th>Result</th><th>Profit</th><th>CLV vs close</th></tr><tr><td class='mut'>2026-07-22</td><td>WNBA</td><td>Portland Fire +6.5<br><span class='mut'>final 101-97 (cover +2.5)</span></td><td>-110</td><td>$200.00</td><td>+5.4%</td><td><span class='pill pw'>WIN</span></td><td class='good'>+$181.82</td><td class='mut'>&mdash;</td></tr><tr><td class='mut'>2026-07-22</td><td>WNBA</td><td>Washington Mystics +6.5<br><span class='mut'>final 99-100 (cover +7.5)</span></td><td>-110</td><td>$200.00</td><td>+12.4%</td><td><span class='pill pw'>WIN</span></td><td class='good'>+$181.82</td><td class='mut'>&mdash;</td></tr></table>
+<div class='foot'>&#9888;&#65039; 100% SIMULATED — paper bets only. This bot never
+touches a sportsbook and never wagers real money. It exists to answer, with a
+real tracked record and closing-line value stamped from day one, whether an ATS
+model beats the vig. Sibling of Betting Scout (moneylines) and Totals Scout
+(over/under) on the same slate. Data: ESPN public API.
+Updated 2026-07-24 16:54 UTC.</div>
 </div></body></html>

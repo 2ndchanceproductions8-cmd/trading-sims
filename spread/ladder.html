@@ -1,23 +1,96 @@
 <!doctype html><html><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
-<title>Spread Scout — Ablation Ladder</title>
-<meta name="viewport" content="width=device-width,initial-scale=1"><style>
-body{font:15px/1.5 system-ui,sans-serif;margin:0;background:#0f1115;color:#e6e6e6}
-.wrap{max-width:960px;margin:0 auto;padding:20px} h1{font-size:20px;margin:0}
-.sub{color:#8a94a6;font-size:13px;margin-bottom:14px}
-.cards{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}
-.card{background:#171a21;border:1px solid #232833;border-radius:10px;padding:12px;flex:1;min-width:150px}
-.card.ctrl{border-color:#2f7d5b} .card .t{font-size:12px;color:#8a94a6}
-.card .n{font-size:20px;font-weight:700} .card .k{font-size:11px;color:#8a94a6}
-h2{font-size:15px;margin:18px 0 6px;color:#c9d3e0}
-table{width:100%;border-collapse:collapse} th,td{text-align:left;padding:6px 8px;
-border-bottom:1px solid #232833;font-size:12px} th{color:#8a94a6}
-a{color:#6ea8fe}</style></head><body><div class="wrap">
-<h1>Spread Scout — Ablation Ladder</h1>
-<div class="sub">Each rung adds ONE fix to the careful control (season-rate model):
-ceiling → recency form → roster freeze → quarter-Kelly. Judged on bankroll AND
-closing-line value. SIM ONLY · <a href="dashboard.html">« dashboards</a> · 0 games today</div>
-<div class="cards"><div class='card ctrl'><div class='t'>Control (careful)</div><div class='n'>$10,363.64</div><div class='k'>2-0-0 · pending 0</div><div class='k'>beat close 0/0 · CLV +0.0%</div></div><div class='card'><div class='t'>Ladder: Ceiling (1)</div><div class='n'>$10,000.00</div><div class='k'>0-0-0 · pending 0</div><div class='k'>beat close 0/0 · CLV +0.0%</div></div><div class='card'><div class='t'>Ladder: Form (2)</div><div class='n'>$10,000.00</div><div class='k'>0-0-0 · pending 0</div><div class='k'>beat close 0/0 · CLV +0.0%</div></div><div class='card'><div class='t'>Ladder: Clean (3)</div><div class='n'>$10,000.00</div><div class='k'>0-0-0 · pending 0</div><div class='k'>beat close 0/0 · CLV +0.0%</div></div><div class='card'><div class='t'>Ladder: Sharp (4)</div><div class='n'>$10,000.00</div><div class='k'>0-0-0 · pending 0</div><div class='k'>beat close 0/0 · CLV +0.0%</div></div></div>
-<h2>Recent roster moves (★ = major, triggers a freeze)</h2>
-<table><tr><th>Date</th><th>Lg</th><th>Team</th><th></th><th>Move</th></tr>
-<tr><td colspan=5>none in window</td></tr></table>
+<title>Spread Scout &mdash; Ablation Ladder</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="refresh" content="900">
+<style>:root{--acc:#2f5d7d;--acc2:#6aa7ff}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0e1117;color:#dde3ec;
+margin:0;padding:0 0 60px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.tabs{display:flex;gap:8px;padding:18px 0 0;flex-wrap:wrap}
+.tabs a{padding:9px 22px;border-radius:9px 9px 0 0;text-decoration:none;
+color:#8b94a7;background:#161b26;font-weight:600}
+.tabs a.on{color:#fff;background:#1f2736;border-bottom:3px solid var(--acc2)}
+.banner{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;
+border-radius:0 12px 12px 12px;padding:18px 22px;font-size:17px;line-height:1.5}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0}
+.card{flex:1;min-width:150px;background:#161b26;border:1px solid #232b3b;
+border-radius:12px;padding:14px 18px}
+.card .k{font-size:12px;color:#8b94a7;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:700;margin-top:4px}
+.good{color:#3fd68f}.bad{color:#ff6b6b}.mut{color:#8b94a7}
+h2{margin:28px 0 10px;font-size:19px;border-bottom:1px solid #232b3b;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:#8b94a7;text-align:left;padding:7px 9px;border-bottom:1px solid #232b3b;
+font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td{padding:7px 9px;border-bottom:1px solid #1a2130;vertical-align:top}
+tr:hover td{background:#151b28}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:700}
+.pw{background:#12351f;color:#3fd68f}.pl{background:#3a1620;color:#ff6b6b}
+.pp{background:#2a2f3d;color:#aab3c5}.pn{background:#1d2c45;color:#6aa7ff}
+.home{background:#12351f;color:#3fd68f}.away{background:#1d2c45;color:#6aa7ff}
+.gate{margin:3px 0;font-size:12.5px}
+.gate .ok{color:#3fd68f}.gate .no{color:#ff6b6b}
+details{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+.rules{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:14px 18px;font-size:13.5px;line-height:1.7}
+.chart{background:#161b26;border:1px solid #232b3b;border-radius:12px;padding:12px}
+.race{display:flex;gap:18px;flex-wrap:wrap;background:#161b26;
+border:1px solid #232b3b;border-radius:12px;padding:14px 18px}
+.race .side{flex:1;min-width:220px}
+.race .bar{height:10px;border-radius:6px;background:#232b3b;overflow:hidden;margin-top:6px}
+.race .fill{height:100%}
+.foot{margin-top:34px;padding-top:14px;border-top:1px solid #232b3b;
+color:#6d7789;font-size:12px;line-height:1.6}
+.warn{background:#2a2213;border:1px solid #4d3d17;color:#e0c579;border-radius:10px;
+padding:12px 16px;font-size:13px;line-height:1.6;margin:14px 0}
+</style></head>
+<body><div class="wrap">
+<div class='tabs'><a href='dashboard.html' class=''>Careful</a><a href='aggressive.html' class=''>Aggressive</a><a href='ladder.html' class='on'>&#129521; Ladder</a></div>
+<div class="banner"><b>The ladder:</b> four rungs, each adding exactly one fix to
+the one above &mdash; raced against this bot's own <b>Careful</b> book as the
+control, and judged on <b>closing-line value</b> as much as on bankroll. Board
+today: 0 games.</div>
+<h2>The rungs</h2>
+<table><tr><th>Book</th><th>Bankroll</th><th>P/L</th><th>Record</th><th>Pending</th><th>Beat the close</th><th>State</th></tr><tr><td><b style='color:#8b94a7'>CONTROL — Careful</b><br><span class='mut' style='font-size:12px'>season scoring rates, no ceiling, no freeze, flat 2%</span></td><td><b>$10,363.64</b></td><td class='good'>+$363.64</td><td>2-0</td><td>0</td><td>0/0<br><span class='mut'>+0.0% avg</span></td><td>live</td></tr><tr><td><b style='color:#e0c579'>Ladder: Ceiling (1)</b><br><span class='mut' style='font-size:12px'>+ edge ≤ +10%, flat 2%</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>0/0<br><span class='mut'>+0.0% avg</span></td><td>live</td></tr><tr><td><b style='color:#6aa7ff'>Ladder: Form (2)</b><br><span class='mut' style='font-size:12px'>+ recency-weighted scoring rates, flat 2%</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>0/0<br><span class='mut'>+0.0% avg</span></td><td>live</td></tr><tr><td><b style='color:#3fd68f'>Ladder: Clean (3)</b><br><span class='mut' style='font-size:12px'>+ roster freeze, flat 2%</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>0/0<br><span class='mut'>+0.0% avg</span></td><td>live</td></tr><tr><td><b style='color:#c48bff'>Ladder: Sharp (4)</b><br><span class='mut' style='font-size:12px'>same model as Clean, quarter-Kelly stake</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>0/0<br><span class='mut'>+0.0% avg</span></td><td>live</td></tr></table>
+
+<h2>Why this bot needs a ladder at all</h2>
+<div class="rules">
+The margin model reads <b>season-average scoring rates</b>. <b>A trade doesn't
+move a season average by a single point</b> &mdash; so the day after a team ships
+its leading scorer, the model's expected margin is identical to the day before,
+while the market reprices the spread in minutes. A spread is a bet on the
+<i>difference</i> between two rosters, so a stale rate on either side lands
+straight on the number.
+<ul>
+<li><b>Ceiling</b> &mdash; reject any edge above +10%. A season
+scoring average does not find a 15% edge against a priced spread; that is the
+model being wrong, not the market.</li>
+<li><b>Form</b> &mdash; recency-weighted scoring rates blended
+50/50 with the season rate. Adapts to a
+changed roster in weeks instead of never. <span class="mut">Shrink is identical
+to the control's, so only the rate moves.</span></li>
+<li><b>Clean</b> &mdash; no bet when either side traded/released inside
+3 days or has 3+ fresh significant injuries.</li>
+<li><b>Sharp</b> &mdash; quarter-Kelly staking instead of flat 2%.</li>
+</ul>
+<span class="mut"><b>Honest note:</b> sigma, home-field edge, the form blend and
+the lookback windows are <b>standard public estimates, not fitted</b>. This
+ladder is what judges them. Don't cite them as tuned.</span>
+</div>
+<h2>Roster moves in the last 3 days &mdash; what Clean reads</h2>
+<div class='mut'>No roster moves in the window (or no league on the board today).</div>
+<h2>Today's board, per rung</h2>
+<h3 style='color:#e0c579;margin:18px 0 6px'>Ladder: Ceiling (1) <span class='mut' style='font-size:13px'>&mdash; no bet today</span></h3><div class='mut'>Nothing on the board.</div><h3 style='color:#6aa7ff;margin:18px 0 6px'>Ladder: Form (2) <span class='mut' style='font-size:13px'>&mdash; no bet today</span></h3><div class='mut'>Nothing on the board.</div><h3 style='color:#3fd68f;margin:18px 0 6px'>Ladder: Clean (3) <span class='mut' style='font-size:13px'>&mdash; no bet today</span></h3><div class='mut'>Nothing on the board.</div><h3 style='color:#c48bff;margin:18px 0 6px'>Ladder: Sharp (4) <span class='mut' style='font-size:13px'>&mdash; no bet today</span></h3><div class='mut'>Nothing on the board.</div>
+<h2>Previous bets, per rung</h2>
+<div class="rules mut" style="margin-bottom:8px">Every settled bet each rung has
+made, newest first, with the closing line it got. Rungs with nothing here haven't
+had a bet graded yet.</div>
+<h3 style='color:#8b94a7;margin:18px 0 6px'>CONTROL — Careful</h3><table><tr><th>Placed</th><th>Lg</th><th>Bet</th><th>Price</th><th>Stake</th><th>Edge</th><th>Result</th><th>Profit</th><th>CLV vs close</th></tr><tr><td class='mut'>2026-07-22</td><td>WNBA</td><td>Portland Fire +6.5<br><span class='mut'>final 101-97 (cover +2.5)</span></td><td>-110</td><td>$200.00</td><td>+5.4%</td><td><span class='pill pw'>WIN</span></td><td class='good'>+$181.82</td><td class='mut'>&mdash;</td></tr><tr><td class='mut'>2026-07-22</td><td>WNBA</td><td>Washington Mystics +6.5<br><span class='mut'>final 99-100 (cover +7.5)</span></td><td>-110</td><td>$200.00</td><td>+12.4%</td><td><span class='pill pw'>WIN</span></td><td class='good'>+$181.82</td><td class='mut'>&mdash;</td></tr></table><h3 style='color:#e0c579;margin:18px 0 6px'>Ladder: Ceiling (1)</h3><div class='mut'>No settled bets yet &mdash; this rung's bets are still pending, or it hasn't found one it likes.</div><h3 style='color:#6aa7ff;margin:18px 0 6px'>Ladder: Form (2)</h3><div class='mut'>No settled bets yet &mdash; this rung's bets are still pending, or it hasn't found one it likes.</div><h3 style='color:#3fd68f;margin:18px 0 6px'>Ladder: Clean (3)</h3><div class='mut'>No settled bets yet &mdash; this rung's bets are still pending, or it hasn't found one it likes.</div><h3 style='color:#c48bff;margin:18px 0 6px'>Ladder: Sharp (4)</h3><div class='mut'>No settled bets yet &mdash; this rung's bets are still pending, or it hasn't found one it likes.</div>
+<div class="foot">
+Spread Scout ladder &mdash; simulated bets only, on paper, forever. No sportsbook
+is connected and no real money is at risk. Generated
+2026-07-24 16:54 UTC.
+</div>
 </div></body></html>
