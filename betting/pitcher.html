@@ -1,0 +1,82 @@
+<!DOCTYPE html><html><head><meta name="robots" content="noindex, nofollow"><meta charset='utf-8'>
+<title>Betting Scout — Aggressive Bot</title>
+<style>:root{--acc:#b8860b;--acc2:#8a6508}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0e1117;color:#dde3ec;
+margin:0;padding:0 0 60px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.tabs{display:flex;gap:8px;padding:18px 0 0}
+.tabs a{padding:9px 22px;border-radius:9px 9px 0 0;text-decoration:none;
+color:#8b94a7;background:#161b26;font-weight:600}
+.tabs a.on{color:#fff;background:#1f2736;border-bottom:3px solid var(--acc)}
+.banner{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;
+border-radius:0 12px 12px 12px;padding:18px 22px;font-size:17px;line-height:1.5}
+.banner b{font-size:19px}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0}
+.card{flex:1;min-width:150px;background:#161b26;border:1px solid #232b3b;
+border-radius:12px;padding:14px 18px}
+.card .k{font-size:12px;color:#8b94a7;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:700;margin-top:4px}
+.good{color:#3fd68f}.bad{color:#ff6b6b}.mut{color:#8b94a7}
+h2{margin:28px 0 10px;font-size:19px;border-bottom:1px solid #232b3b;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:#8b94a7;text-align:left;padding:7px 9px;border-bottom:1px solid #232b3b;
+font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td{padding:7px 9px;border-bottom:1px solid #1a2130;vertical-align:top}
+tr:hover td{background:#151b28}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:700}
+.pw{background:#12351f;color:#3fd68f}.pl{background:#3a1620;color:#ff6b6b}
+.pp{background:#2a2f3d;color:#aab3c5}.pn{background:#1d2c45;color:#6aa7ff}
+.gate{margin:3px 0;font-size:12.5px}
+.gate .ok{color:#3fd68f}.gate .no{color:#ff6b6b}
+details{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+.chart{background:#161b26;border:1px solid #232b3b;border-radius:12px;padding:12px}
+.rules{background:#161b26;border:1px solid #232b3b;border-radius:12px;
+padding:14px 18px;font-size:14px;line-height:1.7}
+.foot{margin-top:34px;color:#66708a;font-size:12.5px;border-top:1px solid #232b3b;
+padding-top:12px}
+.race{background:#161b26;border:1px solid #232b3b;border-radius:12px;
+padding:14px 18px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.race .side{flex:1;min-width:220px}
+.race .bar{height:10px;border-radius:6px;background:#232b3b;overflow:hidden;margin-top:6px}
+.race .fill{height:100%}
+</style></head><body><div class='wrap'>
+<div class='tabs'><a href='dashboard.html' class=''>&#128737;&#65039; Careful</a><a href='aggressive.html' class=''>&#128293; Aggressive</a><a href='pitcher.html' class='on'>&#9918; Pitcher-Aware</a><a href='parlay-careful.html' class=''>&#129513; Parlay Careful</a><a href='parlay-aggressive.html' class=''>&#128163; Parlay Aggressive</a></div>
+<div class='banner'><b>Today:</b> &#127919; NEW BET: San Diego Padres (-187) stake $200.00 &nbsp;&middot;&nbsp; &#127919; NEW BET: Milwaukee Brewers (-144) stake $200.00 &nbsp;&middot;&nbsp; &#127919; NEW BET: Houston Astros (-112) stake $200.00</div>
+<div class='cards'>
+<div class='card'><div class='k'>Bankroll</div><div class='v'>$10,000.00</div></div>
+<div class='card'><div class='k'>P&amp;L</div><div class='v good'>+0.0%</div></div>
+<div class='card'><div class='k'>Record</div><div class='v'>0-0</div></div>
+<div class='card'><div class='k'>Pending</div><div class='v'>3</div></div>
+<div class='card'><div class='k'>Status</div><div class='v good'>LIVE</div></div>
+</div>
+<h2>Bankroll curve</h2><div class='chart'><div class='mut'>Bankroll curve appears after a few runs.</div></div>
+<h2>The race</h2>
+<div class='race'>
+<div class='side'><b style='color:#2f81f7'>&#128737;&#65039; Careful</b> $9,659.07<div class='bar'><div class='fill' style='width:96.6%;background:#2f81f7'></div></div></div><div class='side'><b style='color:#e0562d'>&#128293; Aggressive</b> $3,597.52<div class='bar'><div class='fill' style='width:36.0%;background:#e0562d'></div></div></div><div class='side'><b style='color:#b8860b'>&#9918; Pitcher-Aware</b> $10,000.00<div class='bar'><div class='fill' style='width:100.0%;background:#b8860b'></div></div></div><div class='side'><b style='color:#26a269'>&#129513; Parlay Careful</b> $8,655.43<div class='bar'><div class='fill' style='width:86.6%;background:#26a269'></div></div></div><div class='side'><b style='color:#a347e0'>&#128163; Parlay Aggressive</b> $1,181.56<div class='bar'><div class='fill' style='width:11.8%;background:#a347e0'></div></div></div>
+<div class='mut' style='flex-basis:100%'>Four bots &middot; same $10,000 start &middot; same games &middot; different guts. Tabs up top switch pages.</div>
+</div>
+<h2>Playbook</h2><div class='rules'><b>The starting-pitcher rung.</b> This is the Careful book with <b>exactly one change</b>: in MLB the model probability is adjusted for the starting-pitcher matchup. Every other gate is literally Careful's &mdash; both books call the same gate function &mdash; and outside MLB, or when a starter isn't listed, the adjustment is zero and this book is bit-for-bit the control. <b>Why it exists:</b> across 282 settled bets the correlation between this fleet's model edge and the actual result was <b>&minus;0.047</b> &mdash; zero, if anything backwards, with the highest-confidence bets performing <i>worst</i>. That is a model with no information, and no gate or stake change can repair it; the <i>input</i> has to change. In MLB the starter is the single largest determinant of a game and the control ignores him completely, while the market plainly does not. ERA comes from the same ESPN payload the bot already fetches, shrunk toward the day's own slate average by the pitcher's decisions so a hot three-start line doesn't read as an ace. <b>This may still not beat the close</b> &mdash; the market knows the pitcher too &mdash; which is exactly why it is a parallel book judged on CLV rather than an edit to the control.</div>
+<h2>&#9878;&#65039; Did refusing pay? &mdash; every gate-refused pick, graded</h2>
+<div class='rules mut' style='margin-bottom:8px'>
+Every pick the model called value but a gate refused, settled against the real
+final score exactly like a real bet. <b>R = profit per unit staked</b> had it
+been bet &mdash; negative means the gate saved money. This is the only panel here
+that can be proven right or wrong. <span class='mut'>(<b>win_pct</b> = the
+.450 record gate &mdash; sharp-scout inherits it, college-scout dropped it on
+purpose; this is what settles which was right. <b>odds_window</b> = outside
+&minus;200&hellip;+150.) Logging only &mdash; it never changes what this bot bets.</span>
+</div>
+<table><tr><th>Book</th><th>Gate</th><th>Refused</th><th>Would-be record</th><th>Avg R</th><th>Verdict</th></tr><tr><td>aggressive</td><td><b>edge_below_min</b></td><td>110</td><td>52-58</td><td class='bad'>-0.000R</td><td class='bad'>cost -0.013R</td></tr><tr><td>aggressive</td><td><b>not_top_pick</b></td><td>40</td><td>20-20</td><td class='good'>-0.003R</td><td class='good'>saved 0.109R</td></tr><tr><td>aggressive</td><td><b>odds_window</b></td><td>36</td><td>20-16</td><td class='good'>-0.097R</td><td class='good'>saved 3.476R</td></tr><tr><td>careful</td><td><b>edge_below_min</b></td><td>123</td><td>61-62</td><td class='bad'>+0.004R</td><td class='bad'>cost 0.504R</td></tr><tr><td>careful</td><td><b>model_below_min</b></td><td>16</td><td>4-12</td><td class='good'>-0.328R</td><td class='good'>saved 5.24R</td></tr><tr><td>careful</td><td><b>odds_window</b></td><td>6</td><td>5-1</td><td class='bad'>+0.043R</td><td class='bad'>cost 0.258R</td></tr><tr><td>careful</td><td><b>win_pct</b></td><td>6</td><td>3-3</td><td class='good'>-0.046R</td><td class='good'>saved 0.277R</td></tr><tr><td>parlay_aggressive</td><td><b>edge_below_min</b></td><td>123</td><td>60-63</td><td class='bad'>+0.013R</td><td class='bad'>cost 1.648R</td></tr><tr><td>parlay_aggressive</td><td><b>not_top5</b></td><td>39</td><td>21-18</td><td class='bad'>+0.065R</td><td class='bad'>cost 2.553R</td></tr><tr><td>parlay_aggressive</td><td><b>odds_window</b></td><td>16</td><td>9-7</td><td class='good'>-0.270R</td><td class='good'>saved 4.313R</td></tr><tr><td>parlay_careful</td><td><b>edge_below_min</b></td><td>98</td><td>50-48</td><td class='bad'>-0.000R</td><td class='bad'>cost -0.044R</td></tr><tr><td>parlay_careful</td><td><b>model_below_min</b></td><td>14</td><td>6-8</td><td class='good'>-0.145R</td><td class='good'>saved 2.024R</td></tr><tr><td>parlay_careful</td><td><b>not_in_pool</b></td><td>40</td><td>23-17</td><td class='bad'>+0.066R</td><td class='bad'>cost 2.631R</td></tr><tr><td>parlay_careful</td><td><b>odds_window</b></td><td>35</td><td>15-20</td><td class='good'>-0.074R</td><td class='good'>saved 2.576R</td></tr></table><div class='mut' style='margin-top:8px;font-size:12.5px'>Negative average R means the refused picks would have LOST &mdash; the gate earned its keep. Positive means it cost money. Small samples lie; give it months.</div>
+<h2>Pending bets (3)</h2><details><summary>San Diego Padres &mdash; -187, stake $200.00</summary><div class='mut' style='margin:6px 0'>SD -187 (O/U 8.0) &middot; model 64.8% vs market 62.2% &middot; edge +2.5%</div><div class='gate'><span class='ok'>&#10003;</span> Model edge ≥ +3% (vig-free) <span class='mut'>&mdash; edge +13.0% vs +3.0% · Michael King 3.24 ERA (13 dec -&gt; 3.56) vs Michael Lorenzen 6.53 (12 dec -&gt; 5.37); slate avg 3.98 -&gt; home +10.5 pts</span></div><div class='gate'><span class='ok'>&#10003;</span> Model win prob ≥ 52% <span class='mut'>&mdash; model 75.3%</span></div><div class='gate'><span class='ok'>&#10003;</span> Odds within -200…+150 <span class='mut'>&mdash; line -187</span></div><div class='gate'><span class='ok'>&#10003;</span> Team win% ≥ .450 <span class='mut'>&mdash; 53-53 (0.500)</span></div><div class='gate'><span class='ok'>&#10003;</span> Max 3 new bets today <span class='mut'>&mdash; 0 placed so far</span></div><div class='gate'><span class='ok'>&#10003;</span> Max 6 pending bets <span class='mut'>&mdash; 0 pending</span></div><div class='gate'><span class='ok'>&#10003;</span> One bet per game <span class='mut'>&mdash; no double-dip</span></div><div class='gate'><span class='ok'>&#10003;</span> Bankroll healthy (no halt, stake ≥ $10) <span class='mut'>&mdash; bankroll $10,000.00, stake $200.00</span></div></details><details><summary>Milwaukee Brewers &mdash; -144, stake $200.00</summary><div class='mut' style='margin:6px 0'>MIL -144 (O/U 7.5) &middot; model 66.1% vs market 56.4% &middot; edge +9.7%</div><div class='gate'><span class='ok'>&#10003;</span> Model edge ≥ +3% (vig-free) <span class='mut'>&mdash; edge +11.4% vs +3.0% · Landen Roupp 3.93 ERA (15 dec -&gt; 3.95) vs Logan Henderson 3.05 (5 dec -&gt; 3.67); slate avg 3.98 -&gt; home -1.6 pts</span></div><div class='gate'><span class='ok'>&#10003;</span> Model win prob ≥ 52% <span class='mut'>&mdash; model 67.7%</span></div><div class='gate'><span class='ok'>&#10003;</span> Odds within -200…+150 <span class='mut'>&mdash; line -144</span></div><div class='gate'><span class='ok'>&#10003;</span> Team win% ≥ .450 <span class='mut'>&mdash; 66-39 (0.629)</span></div><div class='gate'><span class='ok'>&#10003;</span> Max 3 new bets today <span class='mut'>&mdash; 1 placed so far</span></div><div class='gate'><span class='ok'>&#10003;</span> Max 6 pending bets <span class='mut'>&mdash; 1 pending</span></div><div class='gate'><span class='ok'>&#10003;</span> One bet per game <span class='mut'>&mdash; no double-dip</span></div><div class='gate'><span class='ok'>&#10003;</span> Bankroll healthy (no halt, stake ≥ $10) <span class='mut'>&mdash; bankroll $10,000.00, stake $200.00</span></div></details><details><summary>Houston Astros &mdash; -112, stake $200.00</summary><div class='mut' style='margin:6px 0'>HOU -112 (O/U 8.0) &middot; model 55.0% vs market 50.4% &middot; edge +4.6%</div><div class='gate'><span class='ok'>&#10003;</span> Model edge ≥ +3% (vig-free) <span class='mut'>&mdash; edge +7.9% vs +3.0% · Reid Detmers 4.05 ERA (10 dec -&gt; 4.01) vs Peter Lambert 3.03 (13 dec -&gt; 3.44); slate avg 3.98 -&gt; home -3.3 pts</span></div><div class='gate'><span class='ok'>&#10003;</span> Model win prob ≥ 52% <span class='mut'>&mdash; model 58.3%</span></div><div class='gate'><span class='ok'>&#10003;</span> Odds within -200…+150 <span class='mut'>&mdash; line -112</span></div><div class='gate'><span class='ok'>&#10003;</span> Team win% ≥ .450 <span class='mut'>&mdash; 52-55 (0.486)</span></div><div class='gate'><span class='ok'>&#10003;</span> Max 3 new bets today <span class='mut'>&mdash; 2 placed so far</span></div><div class='gate'><span class='ok'>&#10003;</span> Max 6 pending bets <span class='mut'>&mdash; 2 pending</span></div><div class='gate'><span class='ok'>&#10003;</span> One bet per game <span class='mut'>&mdash; no double-dip</span></div><div class='gate'><span class='ok'>&#10003;</span> Bankroll healthy (no halt, stake ≥ $10) <span class='mut'>&mdash; bankroll $10,000.00, stake $200.00</span></div></details>
+
+<h2>Full bet log</h2>
+<table><tr><th>Placed</th><th>Lg</th><th>Bet</th><th>Line</th><th>Stake</th><th>Edge</th><th>Result</th><th>Profit</th></tr>
+<tr><td colspan='8' class='mut'>Nothing settled yet.</td></tr></table>
+<div class='foot'>&#9888;&#65039; 100% SIMULATED &mdash; paper bets only. This bot never
+touches a sportsbook and never wagers real money. It exists to answer, with a
+real tracked record, whether these strategies beat the vig. (Spoiler the vig
+usually wins &mdash; that's the lesson.) Data: ESPN public API, DraftKings lines.
+Updated 2026-07-28 02:52 UTC.</div>
+</div></body></html>
