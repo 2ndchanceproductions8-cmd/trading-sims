@@ -1,0 +1,87 @@
+<!doctype html><html><head><meta name="robots" content="noindex, nofollow"><meta charset="utf-8">
+<title>College Scout &mdash; Ablation Ladder</title>
+<meta http-equiv="refresh" content="900">
+<style>:root{--acc:#a347e0;--acc2:#7c2fb0}
+body{font-family:'Segoe UI',system-ui,sans-serif;background:#0e1117;color:#dde3ec;
+margin:0;padding:0 0 60px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 20px}
+.tabs{display:flex;gap:8px;padding:18px 0 0}
+.tabs a{padding:9px 22px;border-radius:9px 9px 0 0;text-decoration:none;
+color:#8b94a7;background:#161b26;font-weight:600}
+.tabs a.on{color:#fff;background:#1f2736;border-bottom:3px solid var(--acc)}
+.banner{background:linear-gradient(135deg,var(--acc),var(--acc2));color:#fff;
+border-radius:0 12px 12px 12px;padding:18px 22px;font-size:17px;line-height:1.5}
+.banner b{font-size:19px}
+.cards{display:flex;gap:14px;flex-wrap:wrap;margin:18px 0}
+.card{flex:1;min-width:150px;background:#161b26;border:1px solid #232b3b;
+border-radius:12px;padding:14px 18px}
+.card .k{font-size:12px;color:#8b94a7;text-transform:uppercase;letter-spacing:.06em}
+.card .v{font-size:24px;font-weight:700;margin-top:4px}
+.good{color:#3fd68f}.bad{color:#ff6b6b}.mut{color:#8b94a7}
+h2{margin:28px 0 10px;font-size:19px;border-bottom:1px solid #232b3b;padding-bottom:6px}
+table{width:100%;border-collapse:collapse;font-size:13.5px}
+th{color:#8b94a7;text-align:left;padding:7px 9px;border-bottom:1px solid #232b3b;
+font-size:11.5px;text-transform:uppercase;letter-spacing:.05em}
+td{padding:7px 9px;border-bottom:1px solid #1a2130;vertical-align:top}
+tr:hover td{background:#151b28}
+.pill{display:inline-block;padding:2px 9px;border-radius:20px;font-size:11.5px;font-weight:700}
+.pw{background:#12351f;color:#3fd68f}.pl{background:#3a1620;color:#ff6b6b}
+.pp{background:#2a2f3d;color:#aab3c5}.pn{background:#1d2c45;color:#6aa7ff}
+.gate{margin:3px 0;font-size:12.5px}
+.gate .ok{color:#3fd68f}.gate .no{color:#ff6b6b}
+details{background:#161b26;border:1px solid #232b3b;border-radius:10px;
+padding:10px 14px;margin:8px 0}
+summary{cursor:pointer;font-weight:600}
+.chart{background:#161b26;border:1px solid #232b3b;border-radius:12px;padding:12px}
+.rules{background:#161b26;border:1px solid #232b3b;border-radius:12px;
+padding:14px 18px;font-size:14px;line-height:1.7}
+.foot{margin-top:34px;color:#66708a;font-size:12.5px;border-top:1px solid #232b3b;
+padding-top:12px}
+.race{background:#161b26;border:1px solid #232b3b;border-radius:12px;
+padding:14px 18px;display:flex;gap:26px;align-items:center;flex-wrap:wrap}
+.race .side{flex:1;min-width:220px}
+.race .bar{height:10px;border-radius:6px;background:#232b3b;overflow:hidden;margin-top:6px}
+.race .fill{height:100%}
+</style></head>
+<body><div class="wrap">
+<div class='tabs'><a href='dashboard.html' class=''>&#128737;&#65039; Careful</a><a href='aggressive.html' class=''>&#128293; Aggressive</a><a href='parlay-careful.html' class=''>&#129513; Parlay Careful</a><a href='parlay-aggressive.html' class=''>&#128163; Parlay Aggressive</a><a href='totals-careful.html' class=''>&#128202; Totals Careful</a><a href='totals-aggressive.html' class=''>&#127919; Totals Aggressive</a><a href='ladder.html' class='on'>&#129521; Ladder</a></div>
+<div class="banner"><b>The ladder:</b> three rungs, each adding exactly one gate
+to the one above &mdash; raced against this bot's own <b>Careful</b> book as the
+control. Board today: 0 games.</div>
+<h2>The rungs</h2>
+<table><tr><th>Book</th><th>Bankroll</th><th>P/L</th><th>Record</th><th>Pending</th><th>State</th></tr><tr><td><b style='color:#8b94a7'>CONTROL — Careful</b><br><span class='mut' style='font-size:12px'>power model, no ceiling, no freshness gate, flat 2%</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>live</td></tr><tr><td><b style='color:#2f81f7'>1. Ceiling</b><br><span class='mut' style='font-size:12px'>+ edge ≤ +10%, flat 2%</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>live</td></tr><tr><td><b style='color:#26a269'>2. Fresh</b><br><span class='mut' style='font-size:12px'>+ ratings-freshness gate, flat 2%</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>live</td></tr><tr><td><b style='color:#e0562d'>3. Sharp</b><br><span class='mut' style='font-size:12px'>same gates as Fresh, quarter-Kelly stake</span></td><td><b>$10,000.00</b></td><td class='mut'>$0.00</td><td>0-0</td><td>0</td><td>live</td></tr></table>
+<h2>Why only three rungs (not sharp-scout's four)</h2>
+<div class="rules">
+<b>Ceiling</b> and <b>Sharp</b> port straight over. The other two cannot, and
+faking them would be theatre:
+<ul>
+<li><b>Form is dropped.</b> sharp-scout re-weights recent <i>records</i> because
+betting-scout models on records. This bot deliberately doesn't &mdash; FPI/BPI is
+already strength-of-schedule adjusted and regressed. There is no record here to
+re-weight, and injecting one is the exact mistake this bot was built to avoid.</li>
+<li><b>Clean became Fresh.</b> A roster freeze needs a transaction wire, and
+college has none &mdash; ESPN reports <b>0</b> transactions for NCAAF and NCAAB,
+because college has no trades. Injuries are no substitute either: 27 across 23
+NCAAF teams (MLB has ~290), and NCAAB reports <b>zero</b>. So Fresh keeps the
+<i>purpose</i> &mdash; "my model's inputs don't describe the current team"
+&mdash; using what college actually has: stale ratings and preseason priors.</li>
+</ul>
+</div>
+<h2>&#128225; Ratings freshness &mdash; what the Fresh rung reads</h2>
+<div class="rules mut" style="margin-bottom:8px">
+ESPN serves the newest index it has <i>published</i>. In the gap before a new
+season goes live that is <b>last season's</b>, and every rating on the board then
+describes last year's roster. Fresh also sits out early season, when FPI/BPI is
+mostly preseason prior rather than results (min games: NCAAF
+4, NCAAB 8 &mdash; that counts
+games <i>played</i>, not win% &mdash; sample size, never performance).
+</div>
+<div class='mut'>No league on the board today — nothing to check. (Ratings freshness is only fetched for leagues that are actually playing.)</div>
+<h2>Today's board, per rung</h2>
+<h3 style='color:#2f81f7;margin:18px 0 6px'>1. Ceiling</h3><div class='mut'>Nothing on the board.</div><h3 style='color:#26a269;margin:18px 0 6px'>2. Fresh</h3><div class='mut'>Nothing on the board.</div><h3 style='color:#e0562d;margin:18px 0 6px'>3. Sharp</h3><div class='mut'>Nothing on the board.</div>
+<div class="foot">
+College Scout ladder &mdash; simulated bets only, on paper, forever. No
+sportsbook is connected and no real money is at risk. Generated
+2026-07-28 06:18 UTC.
+</div>
+</div></body></html>
